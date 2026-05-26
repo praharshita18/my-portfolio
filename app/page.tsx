@@ -89,13 +89,18 @@ export default function Home() {
             initial={{ opacity: 0, y: 24, filter: 'blur(12px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-[#1C1917] leading-[1.1] tracking-tight mb-6"
+            className="font-bold text-[#1C1917] tracking-tight mb-6"
           >
-            Your business deserves to be found by the right people. I build{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C8C6C] to-[#C96C4A]">
-              AI-native organic growth engines
-            </span>{' '}
-            from the ground up
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[1.1]">
+              Your business deserves to be found by the right people.
+            </span>
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.15] mt-3">
+              I build{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C8C6C] to-[#C96C4A]">
+                AI-native organic growth engines
+              </span>{' '}
+              from the ground up
+            </span>
           </motion.h1>
 
           {/* Subheadline tags */}
