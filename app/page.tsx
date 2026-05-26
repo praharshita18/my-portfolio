@@ -12,21 +12,21 @@ const whatIDo = [
     symbol: '◈',
     title: 'AI-Augmented Marketing',
     description:
-      'I use AI tools not just to produce content faster, but to research deeper, spot opportunities humans miss, and build systems that scale without proportional headcount.',
+      'I build content systems and workflows using AI tools. Lean teams get more done without adding headcount. If your team is two people with a marketing problem, this is a good place to start.',
     tags: ['AI Workflows', 'Prompt Engineering', 'Systems Thinking'],
   },
   {
     symbol: '◎',
     title: 'Organic Growth Systems',
     description:
-      'SEO, content, and social-led distribution built as interconnected systems — not isolated tactics. Every channel feeds the next. Everything compounds.',
+      'SEO, content clusters, and community outreach. I have built these from zero, solo, across multiple products and industries. The goal is always sustainable traction that compounds over time.',
     tags: ['SEO', 'Content Strategy', 'Distribution'],
   },
   {
     symbol: '⬡',
-    title: 'B2B GTM Strategy',
+    title: 'GTM Strategy and Brand Positioning',
     description:
-      'From ICP definition and positioning to the first viable distribution channel. I help early teams find their growth motion before they try to scale it.',
+      'I define your ICP, messaging framework, and brand voice. Then I build content around what your customers struggle with.',
     tags: ['GTM', 'Positioning', 'ICP Definition'],
   },
 ]
@@ -91,11 +91,11 @@ export default function Home() {
             transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-[#1C1917] leading-[1.1] tracking-tight mb-6"
           >
-            I help early-stage AI and SaaS{' '}
+            Your business deserves to be found by the right people. I build{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C8C6C] to-[#C96C4A]">
-              startups build organic growth
+              AI-native organic growth engines
             </span>{' '}
-            — without a big team or budget.
+            from the ground up
           </motion.h1>
 
           {/* Subheadline tags */}
@@ -247,10 +247,10 @@ export default function Home() {
           <AnimatedSection className="flex items-end justify-between mb-16">
             <div>
               <span className="text-xs uppercase tracking-widest text-[#C96C4A] font-medium mb-3 block">
-                Selected Work
+                Featured Work
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#1C1917]">
-                Featured Case Studies
+                A few projects worth looking at closely
               </h2>
             </div>
             <Link
@@ -348,7 +348,7 @@ export default function Home() {
                   Ready to build your growth engine?
                 </h2>
                 <p className="text-[#57534E] text-base sm:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-                  Whether you need a focused sprint, a content system, or a full embedded partner —
+                  Whether you need a focused sprint, a content system, or a full embedded partner,
                   let's figure out what fits your current stage.
                 </p>
                 <Link
