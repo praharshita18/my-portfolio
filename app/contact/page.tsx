@@ -26,10 +26,33 @@ export default function ContactPage() {
     e.preventDefault()
     setFormState('sending')
 
-    // [PLACEHOLDER] Replace this timeout with your actual form submission logic
-    // e.g. fetch('/api/contact', { method: 'POST', body: JSON.stringify(form) })
-    await new Promise((resolve) => setTimeout(resolve, 1200))
-    setFormState('sent')
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '4b9c212d-f5dd-4a7c-80a3-5d834541c8f8',
+          name: form.name,
+          email: form.email,
+          company: form.company || '—',
+          message: form.message,
+          subject: `Portfolio enquiry from ${form.name}`,
+          from_name: 'Praharshita Portfolio',
+        }),
+      })
+
+      const data = await response.json()
+      if (data.success) {
+        setFormState('sent')
+      } else {
+        setFormState('error')
+      }
+    } catch {
+      setFormState('error')
+    }
   }
 
   const inputClasses =
@@ -78,8 +101,38 @@ export default function ContactPage() {
                   </div>
                   <h2 className="text-xl font-bold text-[#1C1917] mb-2">Message sent</h2>
                   <p className="text-[#57534E] text-sm max-w-xs leading-relaxed">
-                    Thanks for reaching out! I'll get back to you within 24 hours.
+                    Thanks for reaching out. I will get back to you within 2 working days.
                   </p>
+                </motion.div>
+              ) : formState === 'error' ? (
+                <motion.div
+                  key="error"
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex flex-col items-center justify-center text-center py-20 px-8 bg-[#FFFDF8] border border-[#C96C4A]/30 rounded-2xl"
+                >
+                  <div className="w-14 h-14 rounded-full bg-[#C96C4A]/10 border border-[#C96C4A]/25 flex items-center justify-center mb-5">
+                    <svg className="w-6 h-6 text-[#C96C4A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v4m0 4h.01M12 3a9 9 0 100 18A9 9 0 0012 3z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-xl font-bold text-[#1C1917] mb-2">Submission failed</h2>
+                  <p className="text-[#57534E] text-sm max-w-xs leading-relaxed mb-6">
+                    Something went wrong. Please email me directly at{' '}
+                    <a
+                      href="mailto:pakulkar21@gmail.com"
+                      className="text-[#C96C4A] underline underline-offset-2 hover:text-[#b35a39] transition-colors"
+                    >
+                      pakulkar21@gmail.com
+                    </a>
+                  </p>
+                  <button
+                    onClick={() => setFormState('idle')}
+                    className="px-6 py-2.5 rounded-xl border border-[#D8D1C7] text-[#57534E] text-sm font-medium hover:border-[#7C8C6C] hover:text-[#1C1917] transition-all duration-200"
+                  >
+                    Try again
+                  </button>
                 </motion.div>
               ) : (
                 <motion.form
@@ -176,7 +229,7 @@ export default function ContactPage() {
                   </motion.button>
 
                   <p className="text-xs text-[#B7BDC7] text-center">
-                    [PLACEHOLDER] No spam. No automations. A real reply from me.
+                    No spam. A real reply from me.
                   </p>
                 </motion.form>
               )}
